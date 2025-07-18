@@ -1,0 +1,9 @@
+flask
+celery
+redis
+
+faster-whisper==1.1.1
+
+# nemo-asr
+Cython
+git+https://github.com/reazon-research/ReazonSpeech#subdirectory=pkg/nemo-asr

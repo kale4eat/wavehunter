@@ -1,0 +1,30 @@
+services:
+  web:
+    build: .
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]
+    ports:
+      - "5000:5000"
+    depends_on:
+      - redis
+
+  worker:
+    build: .
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]
+    command: celery -A run:celery_app worker --concurrency=1 --loglevel=info
+    depends_on:
+      - redis
+
+  redis:
+    image: redis:alpine

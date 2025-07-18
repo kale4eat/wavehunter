@@ -1,0 +1,39 @@
+services:
+  web:
+    build:
+      context: ..
+      dockerfile: .devcontainer/Dockerfile
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]
+    tty: true
+    ports:
+      - "5000:5000"
+    volumes:
+      - ..:/workspace
+    depends_on:
+      - redis
+
+  worker:
+    build:
+      context: ..
+      dockerfile: .devcontainer/Dockerfile
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]
+    volumes:
+      - ..:/workspace
+    command: celery -A run:celery_app worker --loglevel=info
+    depends_on:
+      - redis
+
+  redis:
+    image: redis:alpine

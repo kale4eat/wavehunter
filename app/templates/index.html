@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <title>wavehunter</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- <link rel="icon" href="favicon.ico"> -->
+  <script src="{{ url_for('static', filename='js/script.js') }}" type="module"></script>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
+</head>
+
+<body>
+  <h1>wavehunter</h1>
+  <section id="upload-section">
+    <h3>Upload an Audio File</h2>
+      <div class="file-input-container">
+        <div class="file-input-wrapper">
+          <input type="file" id="fileInput" accept="audio/*" />
+        </div>
+        <button id="uploadButton">Upload</button>
+      </div>
+      <div id="status"></div>
+  </section>
+
+  <section id="tool-section">
+    <h3>Choose Transcription Tool</h3>
+    <p>
+    <form id="transcriptToolForm">
+      <input type="radio" id="toolChoice1" name="transcriptTool" value="faster-whisper" checked /><label
+        for="toolChoice1">faster-whisper</label>
+      <input type="radio" id="toolChoice2" name="transcriptTool" value="nemo-asr" /><label
+        for="toolChoice2">nemo-asr</label>
+    </form>
+    </p>
+    <details>
+      <summary>faster-whisper settings</summary>
+      <p style="display: inline-block; margin-right: 20px;">
+        Model :
+        <input id="faster-whisper-model" type="text" name="model" value="large-v3" size="30" maxlength="24" />
+      </p>
+      <p style="display: inline-block; margin-right: 20px;">
+        Lang :
+        <input id="faster-whisper-lang" type="text" name="lang" value="" size="2" maxlength="2" />
+      </p>
+      <p style="display: inline-block; margin-right: 20px;">
+        Initial Prompt :
+        <input id="faster-whisper-initial-prompt" type="text" name="initial-prompt" value="" size="60" maxlength="40" />
+      </p>
+    </details>
+    <p>
+      <button id="transcriptButton">Create Segments by Transcript</button>
+    </p>
+  </section>
+
+  </section>
+  <div class="or-separator">
+    <span>or</span>
+  </div>
+
+  <section id="import-section">
+    <h3>Import Segments</h3>
+    <div class="file-input-container">
+      <div class="file-input-wrapper">
+        <input type="file" id="segmentInput" accept=".json" />
+      </div>
+      <button id="importSegmentsButton">Import Segments</button>
+    </div>
+  </section>
+
+  <section id="audio-section">
+    <h3>Audio</h2>
+      <div class="waveform-container">
+        <!-- Wavesurferの波形 -->
+        <div id="waveform"></div>
+      </div>
+      <button id="play">Play/Pause</button>
+  </section>
+
+  <section id="segments-section">
+    <h3>Segments</h2>
+      <button id="exportSegmentsButton">Export Segments</button>
+      <button id="exportSpeechDatasetButton">Export Speech Dataset</button>
+      <div class="table-container">
+        <table id="segmentsTable" style="width: 100%">
+          <thead>
+            <tr>
+              <th>Start</th>
+              <th>End</th>
+              <th>Duration</th>
+              <th>Text</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- JavaScriptでここに行を追加 -->
+          </tbody>
+        </table>
+      </div>
+  </section>
+</body>
+
+</html>

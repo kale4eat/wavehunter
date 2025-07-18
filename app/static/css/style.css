@@ -1,0 +1,117 @@
+/* 波形 */
+/* .waveform-container {
+
+} */
+
+section+section {
+    margin-top: 20px;
+}
+
+/* テーブルをスクロール可能に設定 */
+.table-container {
+    /* margin-top: 160px; /* 波形の高さ分のスペースを確保 */
+    height: 400px;
+    /* テーブル表示エリアの高さ */
+    overflow-y: auto;
+    /* 縦スクロールを有効化 */
+}
+
+/* テーブル全体のスタイル */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    /* セルの境界線を1本にする */
+    margin-top: 20px;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+}
+
+/* ヘッダーのスタイル */
+th {
+    background-color: #4CAF50;
+    /* ヘッダーの背景色 */
+    color: white;
+    /* ヘッダーテキストの色 */
+    padding: 10px;
+    /* 余白 */
+    text-align: left;
+    /* 左揃え */
+}
+
+/* セルのスタイル */
+td {
+    padding: 10px;
+    /* 余白 */
+    border: 1px solid #ddd;
+    /* セルの枠線 */
+}
+
+/* 行の背景色 */
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+    /* 偶数行の背景色 */
+}
+
+/* ホバー時の行の色 */
+tr:hover {
+    background-color: #ddd;
+}
+
+/* コンテナ全体をフレックスボックスで配置 */
+.file-input-container {
+    display: flex;
+    align-items: center;
+    /* 垂直方向に中央揃え */
+    gap: 10px;
+    /* ボタンとファイル入力の間隔を設定 */
+}
+
+.file-input-wrapper {
+    display: inline-block;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    width: 300px;
+    /* 必要に応じて調整 */
+    border: 1px solid #ccc;
+    padding: 5px;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+}
+
+.file-input-wrapper input[type="file"] {
+    width: 100%;
+    cursor: pointer;
+}
+
+
+button {
+    padding: 5px 15px;
+    border: 1px solid #007bff;
+    border-radius: 5px;
+    background-color: #007bff;
+    color: #fff;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+button:disabled {
+    background-color: #cccccc;
+    border-color: #cccccc;
+    cursor: not-allowed;
+    color: #666666;
+}
+
+#tool-section,
+#import-section {
+    border: 1px solid #ccc;
+    padding: 10px;
+    border-radius: 6px;
+    margin-bottom: 20px;
+}
+
+.or-separator {
+    text-align: center;
+    font-weight: bold;
+    margin: 10px 0;
+}
